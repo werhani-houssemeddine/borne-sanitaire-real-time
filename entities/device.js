@@ -97,6 +97,19 @@ class Device{
 			console.log(error);
 		}
 	}
+
+	getCurrentDeviceVisitors(deviceId) {
+		try {
+			const device = this.getDeviceById(deviceId);
+			return device.current_visitors;
+		} catch (error) {
+			if (error.message === "Device Does not exist"){
+				return 0;
+			}
+
+			throw new Error();
+		}
+	}
 	
 }
 
